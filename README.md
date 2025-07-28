@@ -34,8 +34,8 @@ The input image is given in the last field of the data files, and consists of a 
 
 The dataset is contains 3 files:
 - `training.csv`: list of **training 7049 images**. Each row contains the (x,y) coordinates for 15 keypoints, and image data as row-ordered list of pixels.
-`test.csv`: list of **1783 test images**. Each row contains ImageId and image data as row-ordered list of pixels
-`submissionFileFormat.csv`: list of **27124 keypoints to predict**. Each row contains a RowId, ImageId, FeatureName, Location. FeatureName are "left_eye_center_x," "right_eyebrow_outer_end_y," etc. Location is what you need to predict. 
+- `test.csv`: list of **1783 test images**. Each row contains ImageId and image data as row-ordered list of pixels
+- `submissionFileFormat.csv`: list of **27124 keypoints to predict**. Each row contains a RowId, ImageId, FeatureName, Location. FeatureName are "left_eye_center_x," "right_eyebrow_outer_end_y," etc. Location is what you need to predict. 
 
 
 ## 🛠️ Requirements
@@ -47,8 +47,6 @@ pip install tensorflow pandas numpy matplotlib scikit-learn gradio opencv-python
 
 
 ## 🧠 Model Used
-
-The model is based on `MobileNetV3-Small`, pretrained on `ImageNet`. The final classification layer is modified for binary classification (fire vs non-fire).
 ```bash
 model = Sequential([
     Conv2D(32, (3,3), activation='relu', input_shape=(96, 96, 1)),
@@ -100,9 +98,6 @@ Visual tools include:
 ## 📷 Interactive Gradio App
 
 Run the app locally:
-```bash
-python app.py
-```
 This will start a web UI where users can:
 - Upload a face image
 - See the **15 predicted keypoints** overlaid on the face
